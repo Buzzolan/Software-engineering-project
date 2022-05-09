@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<h1>Caricamento file di configurazione</h1>
+<p>Il file selezionato viene salvato nella cartella src/main/resources/templates</p>
+
+<form method="POST" action="/upload" enctype="multipart/form-data">
+    <input type="file" name="FileConfigure" /><br/><br/>
+    <input type="submit" value="Submit" />
+</form>
+
+<a href="WeatherStation">Ritorna alla home senza aver fatto l'aggiornamento </a>
+
+</body>
+</html>

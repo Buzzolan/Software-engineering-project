@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>MVC Web application</title>
+    <!-- <meta http-equiv="Refresh" content="5; url=/WeatherStation" /> --> <!-- permette il refresh della pagina in automatico, va tolto prima di eseguire gli acceptance test -->
+     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> <!-- --> <!-- Da attivare prima di eseguire gli acceptance test così da togliere il refersh automatico  -->
+
+
+</head>
+
+<body>
+<h1>Data catching</h1>
+
+
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>day</th>
+        <th>month</th>
+        <th>temperature</th>
+        <th>humidity</th>
+        <th>pressure</th>
+        <th>Wind_Speed</th>
+        <th>Wind_direction</th>
+        <th>rainfall</th>
+        <th>irradiation</th>
+
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="Data: ${Data_Sensor}">
+        <td th:text="${Data.id}"> <b>0 </b></td>
+        <td th:text="${Data.day}"> 0 </td>
+        <td th:text="${Data.month}"> 0 </td>
+        <td th:text="${Data.temperature} + '°C'"> <b>0 </b></td>
+        <td th:text="${Data.humidity} + '%'"> 0 </td>
+        <td th:text="${Data.pressure} + 'hPa'"> 0 </td>
+        <td th:text="${Data.Wind_Speed} + 'km/h'"> <b>0 </b></td>
+        <td th:text="${Data.Wind_direction}"> 0</td>
+        <td th:text="${Data.rainfall} + 'mm2'"> 0 </td>
+        <td th:text="${Data.irradiation} + 'W/m2'"> 0 </td>
+
+    </tr>
+    </tbody>
+</table>
+
+
+
+
+<form th:action="avvioLettura" method="POST">
+    <button name="startData" value="true" >Avvia raccolta dati</button>
+</form>
+
+<form th:action="stopTask" method="POST">
+    <button name="startData" value="false" >Stop raccolta dati</button>
+</form>
+
+<form th:action="TestingStatus" method="POST">
+    <button name="Testing" value="true" >Avvia Testing</button>
+</form>
+
+<form method="POST" th:action="StartConfigure" >  <!-- esegue operazioni preliminare alla configurazione-->
+    <button name="StartConfigure" value="true" >Inizia Configurazione</button>
+</form>
+
+
+
+
+
+</body>
+</html>

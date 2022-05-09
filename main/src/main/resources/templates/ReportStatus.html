@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>MVC Web application</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+<h1>Stato Weather station</h1>
+
+
+
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>Tipo di test</th>
+            <th>Risultato</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td> <b>Termometro</b> </td> <td th:text=" ${TestTemperature} ">Error</td></tr>
+        <tr><td> <b>Barometro</b>  </td> <td th:text=" ${TestPressure} ">Error</td></tr>
+        <tr><td> <b>Igrometro</b> </td> <td th:text=" ${TestHumidity} ">Error</td> </tr>
+        <tr><td> <b>Anemometro</b> </td> <td th:text=" ${TestWind_Speed} ">Error</td></tr>
+        <tr><td> <b>Banderuola</b> </td> <td th:text=" ${TestWind_direction} ">Error</td></tr>
+        <tr><td> <b>Pluviometro</b> </td> <td th:text=" ${TestRainfall} ">Error</td></tr>
+        <tr><td> <b>Solarimetro</b> </td> <td th:text=" ${TestIrradiation} ">Error</td></tr>
+        <tr><td> <b>livello batteria</b> <td th:text=" ${TestBattery} + ' ' + ${leveBattery} + '%' ">Error</td></th> </tr>
+        <tr><td> <b>Pannelli solari </b> <td th:text=" ${TestPannelliSolari} ">Error</td></th> </tr>
+    </tbody>
+
+
+</table>
+
+<form th:action="avvioLettura" method="POST">
+    <button name="startData" value="true" >Se tutto ok riprendi la lettura dei sensori</button>
+</form>
+
+<a href="WeatherStation">Ritorna alla home senza aver fatto ripartire la raccolta dati</a>
+
+
+</body>
+</html>
